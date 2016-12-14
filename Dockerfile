@@ -2,6 +2,7 @@ FROM centos:5
 MAINTAINER Seti <seti@setadesign.net>
 
 COPY assets/init.sh /init.sh
+COPY assets/php.ini /etc/php.ini
 COPY assets/utterramblings.repo /etc/yum.repos.d/utterramblings.repo
 
 RUN rpm --import http://yum.jasonlitka.com/RPM-GPG-KEY-jlitka && \
