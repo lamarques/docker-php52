@@ -1,5 +1,5 @@
 FROM centos:5
-MAINTAINER Seti <seti@setadesign.net>
+LABEL maintainer=" Rogerio Lamarques <rogerio.lamarques@gmail.com>"
 
 COPY assets/init.sh /init.sh
 COPY assets/php.ini /etc/php.ini
