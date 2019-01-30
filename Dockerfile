@@ -6,6 +6,8 @@ COPY assets/php.ini /etc/php.ini
 COPY assets/utterramblings.repo /etc/yum.repos.d/utterramblings.repo
 
 RUN rpm --import http://yum.jasonlitka.com/RPM-GPG-KEY-jlitka && \
+	yum clean all && \
+	yum update && \
 	yum install -y epel-release && \
 	yum upgrade -y && \
 	yum install -y httpd mod_ssl openssl vixie-cron syslog \
