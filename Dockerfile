@@ -30,4 +30,4 @@ RUN mkdir /etc/httpd/vhost.d && \
 
 EXPOSE 80 443
 
-ENTRYPOINT ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+ENTRYPOINT ["/usr/sbin/httpd", "start"]
