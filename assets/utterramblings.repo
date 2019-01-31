@@ -1,6 +1,5 @@
-[base]
-name=CentOS-$releasever - Base
-#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os
+[utterramblings]
+name=Jason's Utter Ramblings Repo
 baseurl=http://yum.jasonlitka.com/EL$releasever/$basearch/
 enabled=1
 gpgcheck=1
