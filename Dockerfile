@@ -17,34 +17,14 @@ RUN yes | yum update -y
 RUN yum install -y epel-release
 RUN yes | yum upgrade
 RUN yum install -y yum-utils
-RUN yum install -y httpd 
-# RUN yum install -y mod_ssl 
-# RUN yum install -y openssl 
-RUN yum install -y vixie-cron 
-RUN yum install -y syslog 
-RUN yum install -y php 
-RUN yum install -y php-apc 
-RUN yum install -y php-cli 
-RUN yum install -y php-common 
-RUN yum install -y php-gd 
-RUN yum install -y php-mbstring
-RUN yum install -y php-mcrypt 
-# RUN yum install -y php-mhash 
-RUN yum install -y php-mysql 
-RUN yum install -y php-odbc 
-RUN yum install -y php-pdo
-RUN yum install -y php-pear 
-RUN yum install -y php-pear-DB 
-RUN yum install -y php-soap 
-RUN yum install -y php-xml 
-RUN yum install -y php-xmlrpc
-# RUN yum install -y php-bcmath 
-RUN yum install -y php-imap
-RUN yum install -y postfix
+RUN yum install -y httpd vixie-cron syslog \
+	php php-apc php-cli php-common php-gd php-mbstring php-mcrypt \
+	php-mysql php-odbc php-pdo php-pear php-pear-DB php-soap php-xml php-xmlrpc php-imap
+
 RUN mkdir /etc/httpd/vhost.d && \
 	echo "Include vhost.d/*.conf" >> /etc/httpd/conf/httpd.conf && \
 	chmod +x /init.sh
 
 EXPOSE 80 443
 
-CMD ["/init.sh"]
+ENTRYPOINT ["/usr/sbin/httpd", "-D", "FOREGROUND"]
