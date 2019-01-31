@@ -19,7 +19,10 @@ RUN yes | yum upgrade
 RUN yum install -y yum-utils
 RUN yum install -y httpd vixie-cron syslog \
 	php php-apc php-cli php-common php-gd php-mbstring php-mcrypt \
-	php-mysql php-odbc php-pdo php-pear php-pear-DB php-soap php-xml php-xmlrpc php-imap
+	php-mysql php-odbc php-pdo php-pear php-pear-DB php-soap php-xml php-xmlrpc php-imap \
+	php-pdo 
+RUN yum install -y php-pgsql
+RUN yum install -y php-pdo_pgsql-5.2.17
 
 RUN mkdir /etc/httpd/vhost.d && \
 	echo "Include vhost.d/*.conf" >> /etc/httpd/conf/httpd.conf && \
